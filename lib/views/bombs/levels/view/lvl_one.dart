@@ -7,8 +7,6 @@ import '../../../../util/app_routes.dart';
 import '../../../app/app/widgets/heart_widget.dart';
 import '../../../app/app/widgets/navigation_button.dart';
 import '../../../app/consts/app_colors.dart';
-import '../../../app/consts/app_text_style/settings_style.dart';
-import '../widget/blinking_text.dart';
 import '../widget/game_card_widget.dart';
 
 class BombLvlOne extends StatefulWidget {
@@ -51,7 +49,7 @@ class _BombLvlOneState extends State<BombLvlOne> {
 
   void _endGame() async {
     await Future.delayed(Duration(milliseconds: 500));
-    Navigator.of(context).pushNamed(AppRoutes.bombResult);
+    Navigator.of(context).pushNamed(AppRoutes.result);
     score += 15;
   }
 
@@ -76,13 +74,13 @@ class _BombLvlOneState extends State<BombLvlOne> {
               child: Padding(
                 padding: EdgeInsets.only(
                   top: size.height * 0.15,
-                  left: size.width * 0.02,
-                  right: size.width * 0.02,
+                  left: size.width * 0.1,
+                  right: size.width * 0.1,
                 ),
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 2,
+                    childAspectRatio: 2.5,
                     crossAxisSpacing: size.width * 0.001,
                     mainAxisSpacing: size.width * 0.005,
                   ),
@@ -124,8 +122,8 @@ class _BombLvlOneState extends State<BombLvlOne> {
                       AppRoutes.home,
                     );
                   },
-                  buttonHeight: size.width * 0.13,
-                  buttonWidth: size.width * 0.05,
+                  buttonHeight: size.width * 0.14,
+                  buttonWidth: size.width * 0.07,
                 ),
                 NavigationButton(
                   assetName: 'assets/images/settings.png',
@@ -134,8 +132,8 @@ class _BombLvlOneState extends State<BombLvlOne> {
                       AppRoutes.settingsScreen,
                     );
                   },
-                  buttonHeight: size.width * 0.13,
-                  buttonWidth: size.width * 0.05,
+                  buttonHeight: size.width * 0.14,
+                  buttonWidth: size.width * 0.07,
                 ),
               ],
             ),

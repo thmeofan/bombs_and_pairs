@@ -9,7 +9,7 @@ class MenuTextStyle {
 
   static const TextStyle lvlStyle = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 25.0,
+    fontSize: 20.0,
     fontWeight: FontWeight.w700,
     color: Colors.white,
   );

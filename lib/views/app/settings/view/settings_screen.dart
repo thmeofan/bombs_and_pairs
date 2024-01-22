@@ -34,14 +34,14 @@ class SettingsScreen extends StatelessWidget {
             top: size.height * 0.1,
             left: size.width * 0.025,
             child: NavigationButton(
-              assetName: 'assets/icons/home.png',
+              assetName: 'assets/images/home.png',
               onTap: () {
                 Navigator.of(context).pushNamed(
                   AppRoutes.home,
                 );
               },
-              buttonHeight: size.width * 0.13,
-              buttonWidth: size.width * 0.05,
+              buttonHeight: size.width * 0.14,
+              buttonWidth: size.width * 0.07,
             ),
           ),
           Positioned(
@@ -49,102 +49,89 @@ class SettingsScreen extends StatelessWidget {
             right: size.width * 0.02,
             child: HeartWidget(),
           ),
-          Positioned(
-            top: size.height * 0.11,
-            right: size.height * 0.22,
-            child: Image.asset('assets/images/boom.png'),
-            height: size.height * 0.8,
-          ),
           Center(
             child: Stack(
               alignment: Alignment.center,
               children: [
                 Container(
-                  height: size.height * 0.8,
-                  width: size.width * 0.6,
+                  height: size.height * 0.9,
+                  width: size.width * 0.8,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/banner.png'),
+                      image: AssetImage('assets/images/solid_banner.png'),
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
-                Positioned(
-                  bottom: (size.height * 0.15),
-                  right: (size.width * 0.035),
-                  child: Image.asset(
-                    'assets/images/explosion.png',
-                    height: size.height * 0.4,
-                    fit: BoxFit.contain,
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: size.height * 0.25,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        child: StrokeText(
+                          strokeWidth: 4,
+                          strokeColor: Colors.black,
+                          textStyle: SettingsTextStyle.heavyTextStyle,
+                          text: 'PRIVACY POLICY',
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MyInAppWebView(
+                                  url: 'https://google.com/'),
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(height: size.height * 0.02),
+                      TextButton(
+                        child: StrokeText(
+                          strokeWidth: 4,
+                          strokeColor: Colors.black,
+                          textStyle: SettingsTextStyle.heavyTextStyle,
+                          text: 'TERMS OF USE',
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MyInAppWebView(
+                                  url: 'https://google.com/'),
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(height: size.height * 0.02),
+                      TextButton(
+                        child: StrokeText(
+                          strokeWidth: 4,
+                          strokeColor: Colors.black,
+                          textStyle: SettingsTextStyle.heavyTextStyle,
+                          text: 'RATE APP',
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MyInAppWebView(
+                                  url: 'https://google.com/'),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ),
                 Positioned(
-                  top: (size.height * 0.12),
-                  left: (size.width * 0.03),
-                  child: Image.asset(
-                    'assets/images/explosion.png',
-                    height: size.height * 0.4,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      child: StrokeText(
-                        strokeWidth: 4,
-                        strokeColor: AppColors.redColor,
-                        textStyle: SettingsTextStyle.heavyTextStyle,
-                        text: 'PRIVACY POLICY',
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MyInAppWebView(
-                                url: 'https://google.com/'),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(height: size.height * 0.02),
-                    TextButton(
-                      child: StrokeText(
-                        strokeWidth: 4,
-                        strokeColor: AppColors.redColor,
-                        textStyle: SettingsTextStyle.heavyTextStyle,
-                        text: 'TERMS OF USE',
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MyInAppWebView(
-                                url: 'https://google.com/'),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(height: size.height * 0.02),
-                    TextButton(
-                      child: StrokeText(
-                        strokeWidth: 4,
-                        strokeColor: AppColors.redColor,
-                        textStyle: SettingsTextStyle.heavyTextStyle,
-                        text: 'RATE APP',
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MyInAppWebView(
-                                url: 'https://google.com/'),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+                  bottom: 0,
+                  right: size.height * 0.05,
+                  child: Image.asset('assets/images/toucan_laughing.png'),
+                  height: size.height * 0.45,
                 ),
               ],
             ),

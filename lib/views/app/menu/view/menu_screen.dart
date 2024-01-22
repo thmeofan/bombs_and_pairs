@@ -1,5 +1,4 @@
 import 'package:bombs_and_pairs/views/app/app/widgets/chosen_action_button_widget.dart';
-import 'package:bombs_and_pairs/views/app/consts/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../util/app_routes.dart';
@@ -45,8 +44,8 @@ class _MenuScreenState extends State {
                       AppRoutes.home,
                     );
                   },
-                  buttonHeight: size.width * 0.12,
-                  buttonWidth: size.width * 0.06,
+                  buttonHeight: size.width * 0.14,
+                  buttonWidth: size.width * 0.07,
                 ),
                 SizedBox(
                   width: size.width * 0.01,
@@ -58,8 +57,8 @@ class _MenuScreenState extends State {
                       AppRoutes.settingsScreen,
                     );
                   },
-                  buttonHeight: size.width * 0.12,
-                  buttonWidth: size.width * 0.06,
+                  buttonHeight: size.width * 0.14,
+                  buttonWidth: size.width * 0.07,
                 ),
               ],
             ),

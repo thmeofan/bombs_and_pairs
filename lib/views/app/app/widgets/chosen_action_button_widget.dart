@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stroke_text/stroke_text.dart';
+
+import '../../consts/app_text_style/menu_style.dart';
 
 class ChosenActionButton extends StatelessWidget {
   const ChosenActionButton({
@@ -40,8 +43,11 @@ class ChosenActionButton extends StatelessWidget {
             ),
             // primary: Colors.transparent,
           ),
-          child: Text(
-            text,
+          child: StrokeText(
+            strokeWidth: 4,
+            strokeColor: Colors.black,
+            text: text,
+            textStyle: MenuTextStyle.lvlStyle,
           ),
         ),
       ),

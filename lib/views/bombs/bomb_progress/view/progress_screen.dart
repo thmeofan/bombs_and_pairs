@@ -8,14 +8,14 @@ import '../../../app/app/widgets/navigation_button.dart';
 import '../../../app/consts/app_colors.dart';
 import '../widget/level_button.dart';
 
-class ProgressScreen extends StatefulWidget {
-  const ProgressScreen({super.key});
+class PairProgressScreen extends StatefulWidget {
+  const PairProgressScreen({super.key});
 
   @override
-  _ProgressScreenState createState() => _ProgressScreenState();
+  _PairProgressScreenState createState() => _PairProgressScreenState();
 }
 
-class _ProgressScreenState extends State<ProgressScreen> {
+class _PairProgressScreenState extends State<PairProgressScreen> {
   final int numberOfLevels = 5;
   int selectedLevelIndex = 0;
   List<bool>? levelsPlayed;
@@ -106,11 +106,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     selectedLevelIndex = 0;
                   });
                   _onStartLevel();
-                  Navigator.of(context).pushNamed(AppRoutes.bombLvl1);
+                  Navigator.of(context).pushNamed(AppRoutes.pairLvl1);
                 },
                 text: 'lvl 1',
-                beenPlayed: levelsPlayed![0],
-                imagePath: levelsPlayed![0]
+                beenPlayed: levelsPlayed != null && levelsPlayed![0],
+                imagePath: levelsPlayed != null && levelsPlayed![0]
                     ? 'assets/images/played_lvl_up.png'
                     : 'assets/images/unplayed_lvl_up.png',
               ),
@@ -120,12 +120,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   setState(() {
                     selectedLevelIndex = 1;
                   });
-                  Navigator.of(context).pushNamed(AppRoutes.bombLvl2);
+                  Navigator.of(context).pushNamed(AppRoutes.pairLvl2);
                   _onStartLevel();
                 },
                 text: 'lvl 2',
-                beenPlayed: levelsPlayed![1],
-                imagePath: levelsPlayed![1]
+                beenPlayed: levelsPlayed != null && levelsPlayed![1],
+                imagePath: levelsPlayed != null && levelsPlayed![1]
                     ? 'assets/images/played_lvl_down.png'
                     : 'assets/images/unplayed_lvl_down.png',
               ),
@@ -135,12 +135,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   setState(() {
                     selectedLevelIndex = 2;
                   });
-                  Navigator.of(context).pushNamed(AppRoutes.bombLvl3);
+                  Navigator.of(context).pushNamed(AppRoutes.pairLvl3);
                   _onStartLevel();
                 },
                 text: 'lvl 3',
-                beenPlayed: levelsPlayed![2],
-                imagePath: levelsPlayed![2]
+                beenPlayed: levelsPlayed != null && levelsPlayed![2],
+                imagePath: levelsPlayed != null && levelsPlayed![2]
                     ? 'assets/images/played_lvl_up.png'
                     : 'assets/images/unplayed_lvl_up.png',
               ),
@@ -150,12 +150,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   setState(() {
                     selectedLevelIndex = 3;
                   });
-                  Navigator.of(context).pushNamed(AppRoutes.bombLvl4);
+                  Navigator.of(context).pushNamed(AppRoutes.pairLvl4);
                   _onStartLevel();
                 },
                 text: 'lvl 4',
-                beenPlayed: levelsPlayed![3],
-                imagePath: levelsPlayed![3]
+                beenPlayed: levelsPlayed != null && levelsPlayed![3],
+                imagePath: levelsPlayed != null && levelsPlayed![3]
                     ? 'assets/images/played_lvl_down.png'
                     : 'assets/images/unplayed_lvl_down.png',
               ),
@@ -165,12 +165,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   setState(() {
                     selectedLevelIndex = 4;
                   });
-                  Navigator.of(context).pushNamed(AppRoutes.bombLvl5);
+                  Navigator.of(context).pushNamed(AppRoutes.pairLvl5);
                   _onStartLevel();
                 },
                 text: 'lvl 5',
-                beenPlayed: levelsPlayed![4],
-                imagePath: levelsPlayed![4]
+                beenPlayed: levelsPlayed != null && levelsPlayed![4],
+                imagePath: levelsPlayed != null && levelsPlayed![4]
                     ? 'assets/images/played_lvl_up.png'
                     : 'assets/images/unplayed_lvl_up.png',
               ),

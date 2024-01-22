@@ -1,2 +1,2 @@
 int score = 0;
-int life = 6;
+int life = 30;

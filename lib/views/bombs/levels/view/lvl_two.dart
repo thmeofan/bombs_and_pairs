@@ -7,8 +7,6 @@ import '../../../../util/app_routes.dart';
 import '../../../app/app/widgets/heart_widget.dart';
 import '../../../app/app/widgets/navigation_button.dart';
 import '../../../app/consts/app_colors.dart';
-import '../../../app/consts/app_text_style/settings_style.dart';
-import '../widget/blinking_text.dart';
 import '../widget/game_card_widget.dart';
 
 class BombLvlTwo extends StatefulWidget {
@@ -51,7 +49,7 @@ class _BombLvlTwoState extends State<BombLvlTwo> {
 
   void _endGame() async {
     await Future.delayed(Duration(milliseconds: 500));
-    Navigator.of(context).pushNamed(AppRoutes.bombResult);
+    Navigator.of(context).pushNamed(AppRoutes.result);
     score += 15;
   }
 
@@ -98,20 +96,6 @@ class _BombLvlTwoState extends State<BombLvlTwo> {
               ),
             ),
           ),
-          // Positioned(
-          //   top: size.height * 0.06,
-          //   left: 0,
-          //   right: 0,
-          //   child: const Align(
-          //     alignment: Alignment.center,
-          //     child: BlinkingText(
-          //       text: 'GO',
-          //       strokeWidth: 4,
-          //       strokeColor: AppColors.redColor,
-          //       textStyle: SettingsTextStyle.heavyStyle,
-          //     ),
-          //   ),
-          // ),
           Positioned(
             top: size.height * 0.1,
             left: size.width * 0.025,
@@ -124,8 +108,8 @@ class _BombLvlTwoState extends State<BombLvlTwo> {
                       AppRoutes.home,
                     );
                   },
-                  buttonHeight: size.width * 0.13,
-                  buttonWidth: size.width * 0.05,
+                  buttonHeight: size.width * 0.14,
+                  buttonWidth: size.width * 0.077,
                 ),
                 NavigationButton(
                   assetName: 'assets/images/settings.png',
@@ -134,8 +118,8 @@ class _BombLvlTwoState extends State<BombLvlTwo> {
                       AppRoutes.settingsScreen,
                     );
                   },
-                  buttonHeight: size.width * 0.13,
-                  buttonWidth: size.width * 0.05,
+                  buttonHeight: size.width * 0.14,
+                  buttonWidth: size.width * 0.07,
                 ),
               ],
             ),

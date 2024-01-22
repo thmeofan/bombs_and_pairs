@@ -17,7 +17,13 @@ class HeartWidget extends StatelessWidget {
           height: screenWidth * 0.05,
         );
       } else {
-        return Image.asset('assets/icons/heart.png');
+        return ColorFiltered(
+          colorFilter: ColorFilter.mode(
+            Colors.red.withOpacity(0.5),
+            BlendMode.srcIn,
+          ),
+          child: Image.asset('assets/icons/heart.png'),
+        );
       }
     });
 

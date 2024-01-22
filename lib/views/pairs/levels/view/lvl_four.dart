@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import '../../../../data/repository/score_repo.dart';
@@ -9,17 +7,27 @@ import '../../../app/app/widgets/navigation_button.dart';
 import '../../../app/consts/app_colors.dart';
 import '../widget/game_card_widget.dart';
 
-class BombLvlFive extends StatefulWidget {
-  const BombLvlFive({super.key});
+class PairLvlFour extends StatefulWidget {
+  const PairLvlFour({super.key});
 
   @override
-  _BombLvlFiveState createState() => _BombLvlFiveState();
+  _PairLvlFourState createState() => _PairLvlFourState();
 }
 
-class _BombLvlFiveState extends State<BombLvlFive> {
-  final String _bombIcon = 'bomb.png';
-  List<String?> _gameIcons = [];
+class _PairLvlFourState extends State<PairLvlFour> {
+  final List<String> _availableIcons = [
+    'bomb.png',
+    'cave.png',
+    'lianas.png',
+    'nuts.png',
+    'rock.png',
+    'volcano.png',
+  ];
+
+  List<String> _gameIcons = [];
   List<bool> _cardFlipped = [];
+  int _previousIndex = -1;
+  bool _flipAllowed = true;
 
   @override
   void initState() {
@@ -29,28 +37,16 @@ class _BombLvlFiveState extends State<BombLvlFive> {
 
   void _initGame() {
     setState(() {
-      _gameIcons = List<String?>.filled(12, null);
-      _gameIcons[Random().nextInt(_gameIcons.length)] = _bombIcon;
+      List<String> halfGameIcons = List<String>.from(_availableIcons)
+        ..shuffle();
+      halfGameIcons = halfGameIcons.take(5).toList();
+
+      _gameIcons = [...halfGameIcons, ...halfGameIcons];
+      _gameIcons.shuffle();
+
       _cardFlipped = List<bool>.filled(_gameIcons.length, false);
+      _previousIndex = -1;
     });
-  }
-
-  void _onCardClick(int index) {
-    if (_cardFlipped[index]) return;
-
-    setState(() {
-      _cardFlipped[index] = true;
-    });
-
-    if (_gameIcons[index] == _bombIcon) {
-      _endGame();
-    }
-  }
-
-  void _endGame() async {
-    await Future.delayed(Duration(milliseconds: 500));
-    Navigator.of(context).pushNamed(AppRoutes.result);
-    score += 15;
   }
 
   @override
@@ -73,21 +69,22 @@ class _BombLvlFiveState extends State<BombLvlFive> {
             child: Center(
               child: Padding(
                 padding: EdgeInsets.only(
-                  top: size.height * 0.15,
-                  left: size.width * 0.02,
-                  right: size.width * 0.02,
+                  top: size.height * 0.2,
+                  left: size.width * 0.08,
+                  right: size.width * 0.08,
+                  bottom: size.height * 0.05,
                 ),
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    childAspectRatio: 2,
-                    crossAxisSpacing: size.width * 0.001,
-                    mainAxisSpacing: size.width * 0.005,
+                    crossAxisCount: 5,
+                    childAspectRatio: 1.2,
+                    crossAxisSpacing: size.width * 0.026,
+                    mainAxisSpacing: size.width * 0.006,
                   ),
                   itemCount: _gameIcons.length,
                   itemBuilder: (context, index) {
                     return CustomCard(
-                      iconName: _gameIcons[index] ?? '',
+                      iconName: _gameIcons[index],
                       isFlipped: _cardFlipped[index],
                       onTap: () => _onCardClick(index),
                     );
@@ -132,5 +129,41 @@ class _BombLvlFiveState extends State<BombLvlFive> {
         ]),
       ),
     );
+  }
+
+  void _onCardClick(int index) {
+    if (!_flipAllowed || _cardFlipped[index]) return;
+
+    setState(() {
+      _cardFlipped[index] = true;
+    });
+
+    if (_previousIndex == -1) {
+      _previousIndex = index;
+    } else {
+      if (_gameIcons[index] == _gameIcons[_previousIndex]) {
+        _checkForCompletion();
+        _previousIndex = -1;
+      } else {
+        _flipAllowed = false;
+        Future.delayed(const Duration(milliseconds: 700), () {
+          setState(() {
+            _cardFlipped[index] = false;
+            _cardFlipped[_previousIndex] = false;
+            _previousIndex = -1;
+            _flipAllowed = true;
+          });
+        });
+      }
+    }
+  }
+
+  void _checkForCompletion() {
+    if (_cardFlipped.every((bool status) => status)) {
+      Navigator.of(context).pushNamed(
+        AppRoutes.result,
+      );
+      score += 100;
+    }
   }
 }
