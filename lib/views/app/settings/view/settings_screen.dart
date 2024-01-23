@@ -5,7 +5,6 @@ import '../../../../util/app_routes.dart';
 import '../../app/view/my_in_app_web_view.dart';
 import '../../app/widgets/heart_widget.dart';
 import '../../app/widgets/navigation_button.dart';
-import '../../consts/app_colors.dart';
 import '../../consts/app_text_style/settings_style.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -21,10 +20,10 @@ class SettingsScreen extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
+                image: const AssetImage('assets/images/background.png'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                  AppColors.darkRedColor.withOpacity(0.4),
+                  Colors.black.withOpacity(0.4),
                   BlendMode.darken,
                 ),
               ),
@@ -47,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
           Positioned(
             top: size.height * 0.1,
             right: size.width * 0.02,
-            child: HeartWidget(),
+            child: const HeartWidget(),
           ),
           Center(
             child: Stack(
@@ -72,7 +71,7 @@ class SettingsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       TextButton(
-                        child: StrokeText(
+                        child: const StrokeText(
                           strokeWidth: 4,
                           strokeColor: Colors.black,
                           textStyle: SettingsTextStyle.heavyTextStyle,
@@ -90,7 +89,7 @@ class SettingsScreen extends StatelessWidget {
                       ),
                       SizedBox(height: size.height * 0.02),
                       TextButton(
-                        child: StrokeText(
+                        child: const StrokeText(
                           strokeWidth: 4,
                           strokeColor: Colors.black,
                           textStyle: SettingsTextStyle.heavyTextStyle,
@@ -108,7 +107,7 @@ class SettingsScreen extends StatelessWidget {
                       ),
                       SizedBox(height: size.height * 0.02),
                       TextButton(
-                        child: StrokeText(
+                        child: const StrokeText(
                           strokeWidth: 4,
                           strokeColor: Colors.black,
                           textStyle: SettingsTextStyle.heavyTextStyle,
@@ -130,8 +129,8 @@ class SettingsScreen extends StatelessWidget {
                 Positioned(
                   bottom: 0,
                   right: size.height * 0.05,
-                  child: Image.asset('assets/images/toucan_laughing.png'),
                   height: size.height * 0.45,
+                  child: Image.asset('assets/images/toucan_laughing.png'),
                 ),
               ],
             ),

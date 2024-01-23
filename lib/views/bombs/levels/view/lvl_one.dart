@@ -46,7 +46,7 @@ class _BombLvlOneState extends State<BombLvlOne> {
   }
 
   void _endGame() async {
-    await Future.delayed(Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 500));
     Navigator.of(context).pushNamed(AppRoutes.result);
   }
 
@@ -57,7 +57,7 @@ class _BombLvlOneState extends State<BombLvlOne> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: const AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.4),
@@ -93,20 +93,6 @@ class _BombLvlOneState extends State<BombLvlOne> {
               ),
             ),
           ),
-          // Positioned(
-          //   top: size.height * 0.06,
-          //   left: 0,
-          //   right: 0,
-          //   child: const Align(
-          //     alignment: Alignment.center,
-          //     child: BlinkingText(
-          //       text: 'GO',
-          //       strokeWidth: 4,
-          //       strokeColor: AppColors.redColor,
-          //       textStyle: SettingsTextStyle.heavyStyle,
-          //     ),
-          //   ),
-          // ),
           Positioned(
             top: size.height * 0.1,
             left: size.width * 0.025,

@@ -54,7 +54,7 @@ class _PairLvlFourState extends State<PairLvlFour> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: const AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.4),
@@ -122,7 +122,7 @@ class _PairLvlFourState extends State<PairLvlFour> {
           Positioned(
             top: size.height * 0.1,
             right: size.width * 0.02,
-            child: HeartWidget(),
+            child: const HeartWidget(),
           ),
         ]),
       ),

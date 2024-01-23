@@ -43,18 +43,3 @@ class CustomCard extends StatelessWidget {
     );
   }
 }
-//
-// Future<List<CustomCard>> loadCards() async {
-//   final manifestContent = await rootBundle.loadString('AssetManifest.json');
-//   final Map<String, dynamic> manifestMap = json.decode(manifestContent);
-//
-//   final iconPaths = manifestMap.keys
-//       .where((String key) => key.startsWith('assets/icons/'))
-//       .toList();
-//
-//   List<CustomCard> cards = iconPaths
-//       .map((iconPath) => CustomCard(iconName: iconPath.split('/').last))
-//       .toList();
-//
-//   return cards;
-// }

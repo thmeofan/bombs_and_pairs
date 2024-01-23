@@ -77,14 +77,13 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    // Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         height: screenHeight,
         width: screenWidth,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: const AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.4),
@@ -219,7 +218,7 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
           Positioned(
             top: screenHeight * 0.1,
             right: screenWidth * 0.02,
-            child: HeartWidget(),
+            child: const HeartWidget(),
           ),
         ]),
       ),

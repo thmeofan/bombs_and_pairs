@@ -54,7 +54,7 @@ class OnboardingScreen extends StatelessWidget {
                           style: OnboardingTextStyle.introduction,
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       ChosenActionButton(
                         text: 'Start',
                         height: MediaQuery.of(context).size.height * 0.25,

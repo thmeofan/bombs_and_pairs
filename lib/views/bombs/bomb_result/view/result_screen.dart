@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../../../util/app_routes.dart';
 import '../../../app/app/widgets/heart_widget.dart';
 import '../../../app/app/widgets/navigation_button.dart';
-import '../../../app/consts/app_colors.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key});
@@ -19,10 +18,10 @@ class ResultScreen extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
+                image: const AssetImage('assets/images/background.png'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                  AppColors.darkRedColor.withOpacity(0.4),
+                  Colors.black.withOpacity(0.4),
                   BlendMode.darken,
                 ),
               ),
@@ -50,7 +49,7 @@ class ResultScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      HeartWidget(),
+                      const HeartWidget(),
                       ChosenActionButton(
                           height: size.height * 0.3,
                           width: size.height * 0.5,

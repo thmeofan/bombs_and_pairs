@@ -23,7 +23,7 @@ class _MenuScreenState extends State {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
+                image: const AssetImage('assets/images/background.png'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.6),
@@ -37,16 +37,6 @@ class _MenuScreenState extends State {
             left: size.width * 0.01,
             child: Row(
               children: [
-                // NavigationButton(
-                //   assetName: 'assets/images/home.png',
-                //   onTap: () {
-                //     Navigator.of(context).pushNamed(
-                //       AppRoutes.home,
-                //     );
-                //   },
-                //   buttonHeight: size.width * 0.14,
-                //   buttonWidth: size.width * 0.07,
-                // ),
                 SizedBox(
                   width: size.width * 0.01,
                 ),

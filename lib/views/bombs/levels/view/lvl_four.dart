@@ -123,7 +123,7 @@ class _BombLvlFourState extends State<BombLvlFour> {
           Positioned(
             top: size.height * 0.1,
             right: size.width * 0.02,
-            child: HeartWidget(),
+            child: const HeartWidget(),
           ),
         ]),
       ),

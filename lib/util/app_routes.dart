@@ -54,7 +54,7 @@ abstract class AppRoutes {
       case onboarding:
         child = BlocProvider(
           create: (context) => onboardingCubit,
-          child: OnboardingScreen(),
+          child: const OnboardingScreen(),
         );
       case home:
         child = const MenuScreen();
