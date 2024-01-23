@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../data/repository/score_repo.dart';
 import '../../../../util/app_routes.dart';
 import '../../../app/app/widgets/heart_widget.dart';
 import '../../../app/app/widgets/navigation_button.dart';
-import '../../../app/consts/app_colors.dart';
-
 import '../widget/game_card_widget.dart';
 
 class PairLvlOne extends StatefulWidget {
@@ -60,7 +57,7 @@ class _PairLvlOneState extends State<PairLvlOne> {
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              AppColors.darkRedColor.withOpacity(0.4),
+              Colors.black.withOpacity(0.4),
               BlendMode.darken,
             ),
           ),
@@ -164,7 +161,6 @@ class _PairLvlOneState extends State<PairLvlOne> {
       Navigator.of(context).pushNamed(
         AppRoutes.result,
       );
-      score += 100;
     }
   }
 }

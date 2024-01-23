@@ -3,20 +3,20 @@ import 'package:stroke_text/stroke_text.dart';
 
 import '../../../app/consts/app_text_style/menu_style.dart';
 
-class LevelButton extends StatelessWidget {
+class PairLevelButton extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
   final String imagePath;
   final bool isSelected;
-  final bool beenPlayedBomb;
+  final bool beenPlayedPair;
 
-  const LevelButton({
+  const PairLevelButton({
     Key? key,
     required this.onTap,
     required this.text,
     required this.imagePath,
     required this.isSelected,
-    required this.beenPlayedBomb,
+    required this.beenPlayedPair,
   }) : super(key: key);
 
   @override

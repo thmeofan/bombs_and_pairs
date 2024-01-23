@@ -2,11 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../../../data/repository/score_repo.dart';
 import '../../../../util/app_routes.dart';
 import '../../../app/app/widgets/heart_widget.dart';
 import '../../../app/app/widgets/navigation_button.dart';
-import '../../../app/consts/app_colors.dart';
+
 import '../widget/game_card_widget.dart';
 
 class BombLvlTwo extends StatefulWidget {
@@ -50,7 +49,6 @@ class _BombLvlTwoState extends State<BombLvlTwo> {
   void _endGame() async {
     await Future.delayed(Duration(milliseconds: 500));
     Navigator.of(context).pushNamed(AppRoutes.result);
-    score += 15;
   }
 
   @override
@@ -63,7 +61,7 @@ class _BombLvlTwoState extends State<BombLvlTwo> {
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              AppColors.darkRedColor.withOpacity(0.4),
+              Colors.black.withOpacity(0.4),
               BlendMode.darken,
             ),
           ),

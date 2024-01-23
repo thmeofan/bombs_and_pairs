@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../data/repository/onboarding_repo.dart';
 import '../../../../util/app_routes.dart';
-import '../../consts/app_text_style/settings_style.dart';
 
 class SplashScreen extends StatefulWidget {
   final OnboardingRepository onboardingRepository;
@@ -30,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _simulateProgress() {
-    Future.delayed(const Duration(milliseconds: 100), () {
+    Future.delayed(const Duration(milliseconds: 50), () {
       if (progress < 1.0) {
         setState(() {
           progress += 0.01;
@@ -76,7 +75,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 backgroundColor: Colors.grey[800],
                 valueColor: const AlwaysStoppedAnimation<Color>(Colors.grey),
               ),
-              SizedBox()
+              SizedBox(
+                height: 15,
+              )
             ],
           ),
         ],

@@ -37,16 +37,16 @@ class _MenuScreenState extends State {
             left: size.width * 0.01,
             child: Row(
               children: [
-                NavigationButton(
-                  assetName: 'assets/images/home.png',
-                  onTap: () {
-                    Navigator.of(context).pushNamed(
-                      AppRoutes.home,
-                    );
-                  },
-                  buttonHeight: size.width * 0.14,
-                  buttonWidth: size.width * 0.07,
-                ),
+                // NavigationButton(
+                //   assetName: 'assets/images/home.png',
+                //   onTap: () {
+                //     Navigator.of(context).pushNamed(
+                //       AppRoutes.home,
+                //     );
+                //   },
+                //   buttonHeight: size.width * 0.14,
+                //   buttonWidth: size.width * 0.07,
+                // ),
                 SizedBox(
                   width: size.width * 0.01,
                 ),

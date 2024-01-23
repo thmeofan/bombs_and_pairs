@@ -14,40 +14,36 @@ class ChosenActionButton extends StatelessWidget {
 
   final String text;
   final VoidCallback onTap;
-  final double? width; // Optional width parameter
-  final double? height; // Optional height parameter
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     String imagePath = 'assets/images/action_button_background.png';
-
-    return Padding(
-      padding:
-          const EdgeInsets.all(10), // You can change this to suit your needs
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8), // Border radius
-          image: DecorationImage(
-            image: AssetImage(imagePath),
-            fit: BoxFit.contain,
-          ),
-        ),
-        child: TextButton(
-          onPressed: onTap,
-          style: TextButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+    Size size = MediaQuery.of(context).size;
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(imagePath),
+              fit: BoxFit.contain,
             ),
-            // primary: Colors.transparent,
           ),
-          child: StrokeText(
-            strokeWidth: 4,
-            strokeColor: Colors.black,
-            text: text,
-            textStyle: MenuTextStyle.lvlStyle,
+          child: Column(
+            children: [
+              SizedBox(height: size.height * 0.1),
+              StrokeText(
+                strokeWidth: 4,
+                strokeColor: Colors.black,
+                text: text,
+                textStyle: MenuTextStyle.lvlStyle,
+              ),
+            ],
           ),
         ),
       ),

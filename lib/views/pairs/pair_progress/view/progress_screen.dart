@@ -1,3 +1,4 @@
+import 'package:bombs_and_pairs/views/pairs/pair_progress/widget/level_button.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../data/repository/score_repo.dart';
@@ -5,7 +6,6 @@ import '../../../../util/app_routes.dart';
 import '../../../app/app/widgets/heart_widget.dart';
 import '../../../app/app/widgets/navigation_button.dart';
 import '../../../app/consts/app_colors.dart';
-import '../../../bombs/bomb_progress/widget/level_button.dart';
 
 class BombProgressScreen extends StatefulWidget {
   const BombProgressScreen({super.key});
@@ -16,11 +16,11 @@ class BombProgressScreen extends StatefulWidget {
 
 class _BombProgressScreenState extends State<BombProgressScreen> {
   final int numberOfLevels = 5;
-  int selectedLevelIndex = 0;
-  List<bool>? levelsPlayed;
+  int selectedPairLevelIndex = 0;
+  List<bool>? levelsPlayedPair;
 
-  _HomeScreenState() {
-    levelsPlayed = List.generate(5, (_) => false);
+  _BombProgressScreenState() {
+    levelsPlayedPair = List.generate(5, (_) => false);
   }
 
   @override
@@ -33,7 +33,7 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
     final prefs = await SharedPreferences.getInstance();
     if (!mounted) return;
     setState(() {
-      levelsPlayed = List.generate(numberOfLevels,
+      levelsPlayedPair = List.generate(numberOfLevels,
           (index) => prefs.getBool('levelPlayed$index') ?? false);
     });
   }
@@ -44,15 +44,15 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
   }
 
   void _onStartLevel() {
-    if (levelsPlayed == null) {
+    if (levelsPlayedPair == null) {
       return;
     }
     if (life >= 1) {
       setState(() {
-        levelsPlayed![selectedLevelIndex] = true;
+        levelsPlayedPair![selectedPairLevelIndex] = true;
       });
-      _savePlayedLevel(selectedLevelIndex);
-      score -= 10;
+      _savePlayedLevel(selectedPairLevelIndex);
+
       life -= 1;
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -61,7 +61,7 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
             'Sorry, you\'re out of lives',
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Color(0xFFEAAD82),
+          backgroundColor: AppColors.greenColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
@@ -87,7 +87,7 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              AppColors.darkRedColor.withOpacity(0.4),
+              Colors.black.withOpacity(0.4),
               BlendMode.darken,
             ),
           ),
@@ -98,78 +98,88 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
               vertical: screenHeight * 0.35,
             ),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              LevelButton(
-                isSelected: selectedLevelIndex == 0,
+              PairLevelButton(
+                isSelected: selectedPairLevelIndex == 0,
                 onTap: () {
                   setState(() {
-                    selectedLevelIndex = 0;
+                    selectedPairLevelIndex = 0;
+                    levelsPlayedPair![0] = true;
                   });
                   _onStartLevel();
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl1);
                 },
                 text: 'lvl 1',
-                beenPlayed: levelsPlayed != null && levelsPlayed![0],
-                imagePath: levelsPlayed != null && levelsPlayed![0]
+                beenPlayedPair:
+                    levelsPlayedPair != null && levelsPlayedPair![0],
+                imagePath: levelsPlayedPair != null && levelsPlayedPair![0]
                     ? 'assets/images/played_lvl_up.png'
                     : 'assets/images/unplayed_lvl_up.png',
               ),
-              LevelButton(
-                isSelected: selectedLevelIndex == 1,
+              PairLevelButton(
+                isSelected: selectedPairLevelIndex == 1,
                 onTap: () {
                   setState(() {
-                    selectedLevelIndex = 1;
+                    selectedPairLevelIndex = 1;
+                    levelsPlayedPair![1] = true;
                   });
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl2);
                   _onStartLevel();
                 },
                 text: 'lvl 2',
-                beenPlayed: levelsPlayed != null && levelsPlayed![1],
-                imagePath: levelsPlayed != null && levelsPlayed![1]
+                beenPlayedPair:
+                    levelsPlayedPair != null && levelsPlayedPair![1],
+                imagePath: levelsPlayedPair != null && levelsPlayedPair![1]
                     ? 'assets/images/played_lvl_down.png'
                     : 'assets/images/unplayed_lvl_down.png',
               ),
-              LevelButton(
-                isSelected: selectedLevelIndex == 2,
+              PairLevelButton(
+                isSelected: selectedPairLevelIndex == 2,
                 onTap: () {
                   setState(() {
-                    selectedLevelIndex = 2;
+                    selectedPairLevelIndex = 2;
+                    levelsPlayedPair![2] = true;
                   });
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl3);
                   _onStartLevel();
                 },
                 text: 'lvl 3',
-                beenPlayed: levelsPlayed != null && levelsPlayed![2],
-                imagePath: levelsPlayed != null && levelsPlayed![2]
+                beenPlayedPair:
+                    levelsPlayedPair != null && levelsPlayedPair![2],
+                imagePath: levelsPlayedPair != null && levelsPlayedPair![2]
                     ? 'assets/images/played_lvl_up.png'
                     : 'assets/images/unplayed_lvl_up.png',
               ),
-              LevelButton(
-                isSelected: selectedLevelIndex == 3,
+              PairLevelButton(
+                isSelected: selectedPairLevelIndex == 3,
                 onTap: () {
                   setState(() {
-                    selectedLevelIndex = 3;
+                    selectedPairLevelIndex = 3;
+                    levelsPlayedPair![3] = true;
                   });
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl4);
                   _onStartLevel();
                 },
                 text: 'lvl 4',
-                beenPlayed: levelsPlayed != null && levelsPlayed![3],
-                imagePath: levelsPlayed != null && levelsPlayed![3]
+                beenPlayedPair:
+                    levelsPlayedPair != null && levelsPlayedPair![3],
+                imagePath: levelsPlayedPair != null && levelsPlayedPair![3]
                     ? 'assets/images/played_lvl_down.png'
                     : 'assets/images/unplayed_lvl_down.png',
               ),
-              LevelButton(
-                isSelected: selectedLevelIndex == 4,
+              PairLevelButton(
+                isSelected: selectedPairLevelIndex == 4,
                 onTap: () {
                   setState(() {
-                    selectedLevelIndex = 4;
+                    selectedPairLevelIndex = 4;
+                    levelsPlayedPair![4] = true;
                   });
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl5);
                   _onStartLevel();
                 },
                 text: 'lvl 5',
-                beenPlayed: levelsPlayed != null && levelsPlayed![4],
-                imagePath: levelsPlayed != null && levelsPlayed![4]
+                beenPlayedPair:
+                    levelsPlayedPair != null && levelsPlayedPair![4],
+                imagePath: levelsPlayedPair != null && levelsPlayedPair![4]
                     ? 'assets/images/played_lvl_up.png'
                     : 'assets/images/unplayed_lvl_up.png',
               ),
@@ -187,8 +197,8 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
                       AppRoutes.home,
                     );
                   },
-                  buttonHeight: screenWidth * 0.12,
-                  buttonWidth: screenWidth * 0.06,
+                  buttonHeight: screenWidth * 0.14,
+                  buttonWidth: screenWidth * 0.07,
                 ),
                 SizedBox(
                   width: screenWidth * 0.01,
@@ -200,8 +210,8 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
                       AppRoutes.settingsScreen,
                     );
                   },
-                  buttonHeight: screenWidth * 0.12,
-                  buttonWidth: screenWidth * 0.06,
+                  buttonHeight: screenWidth * 0.14,
+                  buttonWidth: screenWidth * 0.07,
                 ),
               ],
             ),
