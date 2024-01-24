@@ -51,12 +51,13 @@ class ResultScreen extends StatelessWidget {
                     children: [
                       const HeartWidget(),
                       ChosenActionButton(
-                          height: size.height * 0.3,
-                          width: size.height * 0.5,
-                          text: 'Next',
-                          onTap: () {
-                            Navigator.of(context).pushNamed(AppRoutes.home);
-                          }),
+                        height: size.height * 0.3,
+                        width: size.height * 0.5,
+                        onTap: () {
+                          Navigator.of(context).pushNamed(AppRoutes.home);
+                        },
+                        imagePath: 'assets/buttons/next.png',
+                      ),
                     ],
                   ),
                 ),

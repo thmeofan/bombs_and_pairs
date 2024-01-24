@@ -56,7 +56,6 @@ class OnboardingScreen extends StatelessWidget {
                       ),
                       const Spacer(),
                       ChosenActionButton(
-                        text: 'Start',
                         height: MediaQuery.of(context).size.height * 0.25,
                         width: MediaQuery.of(context).size.height * 0.4,
                         onTap: () {
@@ -64,6 +63,7 @@ class OnboardingScreen extends StatelessWidget {
                           Navigator.pushReplacementNamed(
                               context, AppRoutes.home);
                         },
+                        imagePath: 'assets/buttons/start.png',
                       ),
                     ],
                   ),

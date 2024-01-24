@@ -75,7 +75,6 @@ class _MenuScreenState extends State {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ChosenActionButton(
-                        text: 'Pairs',
                         onTap: () {
                           Navigator.of(context).pushNamed(
                             AppRoutes.pairProgress,
@@ -83,12 +82,12 @@ class _MenuScreenState extends State {
                         },
                         height: size.height * 0.3,
                         width: size.width * 0.3,
+                        imagePath: 'assets/buttons/pairs.png',
                       ),
                       SizedBox(
                         width: size.width * 0.1,
                       ),
                       ChosenActionButton(
-                        text: 'Bombs',
                         onTap: () {
                           Navigator.of(context).pushNamed(
                             AppRoutes.bombProgress,
@@ -96,6 +95,7 @@ class _MenuScreenState extends State {
                         },
                         height: size.height * 0.3,
                         width: size.width * 0.3,
+                        imagePath: 'assets/buttons/bomb.png',
                       ),
                     ],
                   ),

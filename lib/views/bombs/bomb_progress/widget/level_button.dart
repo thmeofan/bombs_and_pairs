@@ -5,15 +5,13 @@ import '../../../app/consts/app_text_style/menu_style.dart';
 
 class LevelButton extends StatelessWidget {
   final VoidCallback onTap;
-  final String text;
+
   final String imagePath;
   final bool isSelected;
   final bool beenPlayedBomb;
-
   const LevelButton({
     Key? key,
     required this.onTap,
-    required this.text,
     required this.imagePath,
     required this.isSelected,
     required this.beenPlayedBomb,
@@ -21,16 +19,16 @@ class LevelButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final levelNumber = int.parse(text.replaceAll(RegExp(r'[^0-9]'), ''));
-    final isOddLevel = levelNumber % 2 != 0;
+    //   final levelNumber = int.parse(text.replaceAll(RegExp(r'[^0-9]'), ''));
+    //   final isOddLevel = levelNumber % 2 != 0;
 
-    final padding = isOddLevel
-        ? EdgeInsets.only(
-            top: MediaQuery.of(context).size.width * 0.05,
-          )
-        : EdgeInsets.only(
-            bottom: MediaQuery.of(context).size.width * 0.05,
-          );
+    // final padding = isOddLevel
+    //      ? EdgeInsets.only(
+    //          top: MediaQuery.of(context).size.width * 0.05,
+    //        )
+    //      : EdgeInsets.only(
+    //          bottom: MediaQuery.of(context).size.width * 0.05,
+    //        );
 
     return GestureDetector(
       onTap: onTap,
@@ -43,17 +41,11 @@ class LevelButton extends StatelessWidget {
             fit: BoxFit.contain,
           ),
         ),
-        child: Center(
-          child: Padding(
-            padding: padding,
-            child: StrokeText(
-              text: text,
-              strokeWidth: 4,
-              strokeColor: Colors.black,
-              textStyle: MenuTextStyle.lvlStyle,
-            ),
-          ),
-        ),
+        // child: Center(
+        //   child: Padding(
+        //     padding: padding,
+        //   ),
+        // ),
       ),
     );
   }

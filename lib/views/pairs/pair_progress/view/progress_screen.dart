@@ -107,12 +107,12 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
                   _onStartLevel();
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl1);
                 },
-                text: 'lvl 1',
+                // text: 'lvl 1',
                 beenPlayedPair:
                     levelsPlayedPair != null && levelsPlayedPair![0],
                 imagePath: levelsPlayedPair != null && levelsPlayedPair![0]
-                    ? 'assets/images/played_lvl_up.png'
-                    : 'assets/images/unplayed_lvl_up.png',
+                    ? 'assets/buttons/lvl_1_played.png'
+                    : 'assets/buttons/lvl_1_unplayed.png',
               ),
               PairLevelButton(
                 isSelected: selectedPairLevelIndex == 1,
@@ -124,12 +124,12 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl2);
                   _onStartLevel();
                 },
-                text: 'lvl 2',
+                // text: 'lvl 2',
                 beenPlayedPair:
                     levelsPlayedPair != null && levelsPlayedPair![1],
                 imagePath: levelsPlayedPair != null && levelsPlayedPair![1]
-                    ? 'assets/images/played_lvl_down.png'
-                    : 'assets/images/unplayed_lvl_down.png',
+                    ? 'assets/buttons/lvl_2_played.png'
+                    : 'assets/buttons/lvl_2_unplayed.png',
               ),
               PairLevelButton(
                 isSelected: selectedPairLevelIndex == 2,
@@ -141,12 +141,12 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl3);
                   _onStartLevel();
                 },
-                text: 'lvl 3',
+                //  text: 'lvl 3',
                 beenPlayedPair:
                     levelsPlayedPair != null && levelsPlayedPair![2],
                 imagePath: levelsPlayedPair != null && levelsPlayedPair![2]
-                    ? 'assets/images/played_lvl_up.png'
-                    : 'assets/images/unplayed_lvl_up.png',
+                    ? 'assets/buttons/lvl_3_played.png'
+                    : 'assets/buttons/lvl_3_unplayed.png',
               ),
               PairLevelButton(
                 isSelected: selectedPairLevelIndex == 3,
@@ -158,12 +158,12 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl4);
                   _onStartLevel();
                 },
-                text: 'lvl 4',
+                // text: 'lvl 4',
                 beenPlayedPair:
                     levelsPlayedPair != null && levelsPlayedPair![3],
                 imagePath: levelsPlayedPair != null && levelsPlayedPair![3]
-                    ? 'assets/images/played_lvl_down.png'
-                    : 'assets/images/unplayed_lvl_down.png',
+                    ? 'assets/buttons/lvl_4_played.png'
+                    : 'assets/buttons/lvl_4_unplayed.png',
               ),
               PairLevelButton(
                 isSelected: selectedPairLevelIndex == 4,
@@ -175,12 +175,12 @@ class _BombProgressScreenState extends State<BombProgressScreen> {
                   Navigator.of(context).pushNamed(AppRoutes.bombLvl5);
                   _onStartLevel();
                 },
-                text: 'lvl 5',
+                //  text: 'lvl 5',
                 beenPlayedPair:
                     levelsPlayedPair != null && levelsPlayedPair![4],
                 imagePath: levelsPlayedPair != null && levelsPlayedPair![4]
-                    ? 'assets/images/played_lvl_up.png'
-                    : 'assets/images/unplayed_lvl_up.png',
+                    ? 'assets/buttons/lvl_5_played.png'
+                    : 'assets/buttons/lvl_5_unplayed.png',
               ),
             ]),
           ),
