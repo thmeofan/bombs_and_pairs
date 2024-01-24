@@ -108,7 +108,6 @@ class _PairProgressScreenState extends State<PairProgressScreen> {
                   _onStartLevel();
                   Navigator.of(context).pushNamed(AppRoutes.pairLvl1);
                 },
-                // text: 'LvL 1',
                 beenPlayedBomb:
                     levelsPlayedBomb != null && levelsPlayedBomb![0],
                 imagePath: levelsPlayedBomb != null && levelsPlayedBomb![0]
@@ -125,7 +124,6 @@ class _PairProgressScreenState extends State<PairProgressScreen> {
                   Navigator.of(context).pushNamed(AppRoutes.pairLvl2);
                   _onStartLevel();
                 },
-                //  text: 'Lvl 2',
                 beenPlayedBomb:
                     levelsPlayedBomb != null && levelsPlayedBomb![1],
                 imagePath: levelsPlayedBomb != null && levelsPlayedBomb![1]
@@ -142,7 +140,6 @@ class _PairProgressScreenState extends State<PairProgressScreen> {
                   Navigator.of(context).pushNamed(AppRoutes.pairLvl3);
                   _onStartLevel();
                 },
-                // text: 'lvl 3',
                 beenPlayedBomb:
                     levelsPlayedBomb != null && levelsPlayedBomb![2],
                 imagePath: levelsPlayedBomb != null && levelsPlayedBomb![2]
@@ -159,7 +156,6 @@ class _PairProgressScreenState extends State<PairProgressScreen> {
                   Navigator.of(context).pushNamed(AppRoutes.pairLvl4);
                   _onStartLevel();
                 },
-                // text: 'lvl 4',
                 beenPlayedBomb:
                     levelsPlayedBomb != null && levelsPlayedBomb![3],
                 imagePath: levelsPlayedBomb != null && levelsPlayedBomb![3]
@@ -176,7 +172,6 @@ class _PairProgressScreenState extends State<PairProgressScreen> {
                   Navigator.of(context).pushNamed(AppRoutes.pairLvl5);
                   _onStartLevel();
                 },
-                // text: 'lvl 5',
                 beenPlayedBomb:
                     levelsPlayedBomb != null && levelsPlayedBomb![4],
                 imagePath: levelsPlayedBomb != null && levelsPlayedBomb![4]

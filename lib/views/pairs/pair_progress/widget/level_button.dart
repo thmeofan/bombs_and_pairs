@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stroke_text/stroke_text.dart';
-
-import '../../../app/consts/app_text_style/menu_style.dart';
 
 class PairLevelButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -19,17 +16,6 @@ class PairLevelButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //  final levelNumber = int.parse(text.replaceAll(RegExp(r'[^0-9]'), ''));
-    //  final isOddLevel = levelNumber % 2 != 0;
-
-    // final padding = isOddLevel
-    //     ? EdgeInsets.only(
-    //         top: MediaQuery.of(context).size.width * 0.05,
-    //       )
-    //     : EdgeInsets.only(
-    //         bottom: MediaQuery.of(context).size.width * 0.05,
-    //       );
-
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -41,11 +27,6 @@ class PairLevelButton extends StatelessWidget {
             fit: BoxFit.contain,
           ),
         ),
-        // child: Center(
-        //   child: Padding(
-        //     padding: padding,
-        //   ),
-        // ),
       ),
     );
   }
